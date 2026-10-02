@@ -55,21 +55,29 @@ function parseJsonBody(req) {
 }
 
 const server = http.createServer(async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  try {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204);
-    res.end();
-    return;
-  }
+    if (req.method === 'OPTIONS') {
+      res.writeHead(204);
+      res.end();
+      return;
+    }
 
-  const parsedUrl = new URL(req.url, `http://${req.headers.host || '127.0.0.1'}`);
-  const pathname = decodeURIComponent(parsedUrl.pathname);
-  const cookies = auth.parseCookies(req);
-  const sessionUser = auth.verifySession(cookies['admin_session']);
+    let pathname = '/';
+    try {
+      const parsedUrl = new URL(req.url, `http://${req.headers.host || '127.0.0.1'}`);
+      pathname = decodeURIComponent(parsedUrl.pathname);
+    } catch {
+      res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('400 Bad Request');
+      return;
+    }
 
+    const cookies = auth.parseCookies(req);
+    const sessionUser = auth.verifySession(cookies['admin_session']);
   // --- API ROUTES ---
   if (pathname.startsWith('/api/')) {
     try {
@@ -347,45 +355,61 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  // --- STATIC FILE SERVING ---
-  let reqPath = pathname;
-  if (reqPath === '/' || reqPath.endsWith('/')) {
-    reqPath = path.join(reqPath, 'index.html');
-  }
-  if (reqPath === '/favicon.ico') {
-    reqPath = '/favicon.svg';
-  }
+    // --- STATIC FILE SERVING ---
+    const normalized = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');
+    let reqPath = normalized;
+    if (reqPath === '/' || reqPath === '.' || reqPath.endsWith('/') || reqPath.endsWith('\\')) {
+      reqPath = path.join(reqPath, 'index.html');
+    }
+    if (reqPath === '/favicon.ico' || reqPath === 'favicon.ico') {
+      reqPath = 'favicon.svg';
+    }
 
-  let filePath = path.join(ROOT, reqPath);
-
-  fs.stat(filePath, (err, stats) => {
-    if (err) {
-      res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('404 Not Found');
+    let filePath = path.resolve(ROOT, '.' + path.sep + reqPath);
+    if (!filePath.startsWith(ROOT)) {
+      res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('403 Forbidden');
       return;
     }
 
-    if (stats.isDirectory()) {
-      filePath = path.join(filePath, 'index.html');
+    fs.stat(filePath, (err, stats) => {
+      if (err) {
+        res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('404 Not Found');
+        return;
+      }
+
+      if (stats.isDirectory()) {
+        filePath = path.join(filePath, 'index.html');
+      }
+
+      const ext = path.extname(filePath).toLowerCase();
+      const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+      const cacheControl = 'no-cache, no-store, must-revalidate';
+
+      res.writeHead(200, {
+        'Content-Type': contentType,
+        'Content-Length': stats.size,
+        'Cache-Control': cacheControl
+      });
+
+      const stream = fs.createReadStream(filePath);
+      stream.on('error', () => {
+        if (!res.headersSent) res.writeHead(500);
+        res.end();
+      });
+      res.on('close', () => {
+        stream.destroy();
+      });
+      stream.pipe(res);
+    });
+  } catch (err) {
+    console.error('Unhandled request error:', err);
+    if (!res.headersSent) {
+      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+      res.end('500 Internal Server Error');
     }
-
-    const ext = path.extname(filePath).toLowerCase();
-    const contentType = MIME_TYPES[ext] || 'application/octet-stream';
-    const cacheControl = 'no-cache, no-store, must-revalidate';
-
-    res.writeHead(200, {
-      'Content-Type': contentType,
-      'Content-Length': stats.size,
-      'Cache-Control': cacheControl
-    });
-
-    const stream = fs.createReadStream(filePath);
-    stream.on('error', () => {
-      if (!res.headersSent) res.writeHead(500);
-      res.end();
-    });
-    stream.pipe(res);
-  });
+  }
 });
 
 server.listen(PORT, HOST, () => {
@@ -401,4 +425,12 @@ process.on('SIGINT', () => {
   server.close(() => {
     process.exit(0);
   });
+});
+
+process.on('uncaughtException', (err) => {
+  console.error('[hoa-server] Uncaught Exception:', err);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('[hoa-server] Unhandled Rejection:', reason);
 });
