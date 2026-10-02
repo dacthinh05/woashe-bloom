@@ -129,7 +129,7 @@
         body: JSON.stringify(payload)
       }).catch(function(err) { console.error('Order error:', err); });
       b.innerHTML = '<div class="slip"><span class="cap">Phiếu giao hoa</span><div class="code">' + c + '</div><p class="script" style="font-size:2rem;color:var(--stem)">Cảm ơn bạn!</p><dl><dt>Người nhận</dt><dd>' + esc(fm.ten.value) + '</dd><dt>Giao</dt><dd>' + d + ', ' + h + ':00 – ' + (h + 2) + ':00</dd><dt>Địa chỉ</dt><dd>' + esc(fm.dc.value) + ', ' + esc(D.districts[+fm.kv.value][0]) + '</dd><dt>Tổng</dt><dd><b>' + vnd(t.all) + '</b></dd>' + (fm.loi.value ? '<dt>Thiệp</dt><dd class="script" style="font-size:1.5rem;color:var(--stem)">' + esc(fm.loi.value) + '</dd>' : '') + '</dl><p class="muted" style="font-size:.88rem">Woashe Bloom đã tiếp nhận đơn hàng. Chúng tôi sẽ chụp ảnh hoa gửi duyệt qua Zalo trước khi giao.</p></div>';
-      f.innerHTML = '<a class="btn" style="width:100%" href="https://zalo.me/0898048092" target="_blank" rel="noopener">Nhắn Zalo cho Woashe Bloom</a>';
+      f.innerHTML = '<a class="btn" style="width:100%" href="https://zalo.me/0817567008" target="_blank" rel="noopener">Nhắn Zalo cho Woashe Bloom</a>';
       cart = []; save();
     }
   }
