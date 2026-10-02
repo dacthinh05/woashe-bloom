@@ -67,8 +67,9 @@ const server = http.createServer(async (req, res) => {
     }
 
     let pathname = '/';
+    let parsedUrl;
     try {
-      const parsedUrl = new URL(req.url, `http://${req.headers.host || '127.0.0.1'}`);
+      parsedUrl = new URL(req.url, `http://${req.headers.host || '127.0.0.1'}`);
       pathname = decodeURIComponent(parsedUrl.pathname);
     } catch {
       res.writeHead(400, { 'Content-Type': 'text/plain; charset=utf-8' });
