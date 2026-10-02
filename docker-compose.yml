@@ -1,0 +1,15 @@
+services:
+  woashe-bloom:
+    build: .
+    container_name: woashe-bloom
+    restart: always
+    ports:
+      - "9090:9090"
+    environment:
+      - NODE_ENV=production
+      - PORT=9090
+      - HOST=0.0.0.0
+      - SESSION_SECRET=woashe_bloom_secret_change_me_in_production
+    volumes:
+      - ./data:/app/data
+      - ./assets/img:/app/assets/img

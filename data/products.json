@@ -1,0 +1,188 @@
+[
+  {
+    "slug": "gio-sweet-pink",
+    "name": "Giỏ hoa Sweet Pink",
+    "img": "bq-11",
+    "occ": [
+      "sinh-nhat",
+      "tinh-yeu",
+      "cam-on"
+    ],
+    "tone": "Hồng",
+    "price": [
+      490000,
+      690000,
+      990000
+    ],
+    "desc": "Giỏ hoa rực rỡ với tông màu hồng pastel chủ đạo, điểm xuyết sắc trắng tinh khôi và sắc tím kiêu sa, mang đến cảm giác ngọt ngào và ấm áp. Món quà hoàn hảo để trao gửi yêu thương.",
+    "flowers": "Hồng pastel, cát tường trắng viền hồng, cúc tím, baby trắng, giỏ mây mộc đan tay",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:00:00.000Z"
+  },
+  {
+    "slug": "bo-huyen-bi",
+    "name": "Bó hoa Huyền bí",
+    "img": "bq-12",
+    "occ": [
+      "sinh-nhat",
+      "khai-truong",
+      "cam-on"
+    ],
+    "tone": "Đỏ",
+    "price": [
+      590000,
+      850000,
+      1290000
+    ],
+    "desc": "Bó hoa tone huyền bí dành cho người có gu thẩm mỹ tinh tế, kiêu kỳ và độc lập. Sắc tím mận quý phái phối cùng giấy gói đen mờ.",
+    "flowers": "Hồng tím mận, cẩm chướng rượu vang, sao tím (limonium), lá măng tây",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:01:00.000Z"
+  },
+  {
+    "slug": "lan-ho-diep-cam",
+    "name": "Lan hồ điệp Cam đào",
+    "img": "bq-13",
+    "occ": [
+      "khai-truong",
+      "cam-on"
+    ],
+    "tone": "Vàng",
+    "price": [
+      890000,
+      1450000,
+      2200000
+    ],
+    "desc": "Sắc cam may mắn, khởi đầu tài lộc. Bình lan hồ điệp cam đào sum suê mang lại nguồn năng lượng thịnh vượng, quà tặng sang trọng bậc nhất cho đối tác và lễ khai trương.",
+    "flowers": "Lan hồ điệp cam đào loại 1, chậu sứ trang nhã, phụ kiện nơ lụa",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:02:00.000Z"
+  },
+  {
+    "slug": "binh-gom-mo-ket",
+    "name": "Bình gốm Mỏ két",
+    "img": "bq-14",
+    "occ": [
+      "cam-on",
+      "khai-truong"
+    ],
+    "tone": "Nhiều màu",
+    "price": [
+      550000,
+      790000,
+      1150000
+    ],
+    "desc": "Sự kết hợp ăn ý giữa gam xanh dịu mát, sắc cam trầm ấm cùng dáng hoa mỏ két kiêu hãnh cắm bình gốm thô mộc, tạo điểm nhấn thu hút cho phòng khách và sảnh đón.",
+    "flowers": "Hoa mỏ két (Heliconia), cúc tana, hoa dại nhiệt đới, bình gốm mộc",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:03:00.000Z"
+  },
+  {
+    "slug": "ho-diep-xanh-phoi-lua",
+    "name": "Chậu Hồ Điệp xanh phối lũa",
+    "img": "bq-15",
+    "occ": [
+      "khai-truong",
+      "cam-on"
+    ],
+    "tone": "Trắng",
+    "price": [
+      1250000,
+      1850000,
+      2600000
+    ],
+    "desc": "Thiết kế độc bản mới nhất tại Woashe Bloom: Hồ điệp xanh thời thượng kết hợp thân gỗ lũa nghệ thuật và chậu gốm đen mờ tinh tế. Đẳng cấp và sang trọng.",
+    "flowers": "Lan hồ điệp xanh dương hoàng gia, gỗ lũa tự nhiên, chậu gốm đen mờ",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:04:00.000Z"
+  },
+  {
+    "slug": "lan-vang-doan-vien",
+    "name": "Lan hoàng thảo Vàng Đoàn Viên",
+    "img": "bq-16",
+    "occ": [
+      "cam-on",
+      "khai-truong",
+      "sinh-nhat"
+    ],
+    "tone": "Vàng",
+    "price": [
+      750000,
+      1050000,
+      1500000
+    ],
+    "desc": "Tác phẩm hoa nghệ thuật rực rỡ đón mùa đoàn viên, mang sắc vàng sung túc và phú quý. Rất phù hợp làm quà biếu đối tác hoặc trang trí phòng khách.",
+    "flowers": "Lan hoàng thảo vàng, lan vũ nữ, cành lũa điêu khắc, chậu gốm thủ công",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:05:00.000Z"
+  },
+  {
+    "slug": "binh-hoa-kieu-ky",
+    "name": "Bình hoa Kiêu Kỳ Hiện Đại",
+    "img": "bq-17",
+    "occ": [
+      "sinh-nhat",
+      "tinh-yeu",
+      "cam-on"
+    ],
+    "tone": "Hồng",
+    "price": [
+      680000,
+      950000,
+      1350000
+    ],
+    "desc": "Một góc nhìn ngập tràn cảm xúc từ Woashe Bloom. Pha trộn độc đáo giữa nét kiêu kỳ hiện đại và sự tự nhiên, mềm mại của những loài hoa tươi tuyển chọn.",
+    "flowers": "Mẫu đơn hồng tím, cúc chuông, hoa sao tím, baby trắng, bình sứ nghệ thuật",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:06:00.000Z"
+  },
+  {
+    "slug": "bo-hoa-pastel-diu-em",
+    "name": "Bó hoa Pastel Dịu Êm",
+    "img": "bq-18",
+    "occ": [
+      "sinh-nhat",
+      "tinh-yeu",
+      "cuoi"
+    ],
+    "tone": "Hồng",
+    "price": [
+      520000,
+      750000,
+      1100000
+    ],
+    "desc": "Bó hoa cầm tay với tông màu pastel dịu êm, thanh nhã. Thích hợp làm quà sinh nhật, tặng người yêu hoặc làm bó hoa chụp ảnh cưới lãng mạn.",
+    "flowers": "Cát tường phấn viền hồng, hồng pastel, baby trắng, giấy gói kem trang nhã",
+    "badge": "Mới từ Fanpage",
+    "active": true,
+    "createdAt": "2026-09-30T09:07:00.000Z"
+  },
+  {
+    "slug": "vanda-tim-signature",
+    "name": "Bó hoa Vanda Tím Woashe",
+    "img": "bq-19",
+    "occ": [
+      "sinh-nhat",
+      "tinh-yeu",
+      "cam-on"
+    ],
+    "tone": "Đỏ",
+    "price": [
+      790000,
+      1150000,
+      1690000
+    ],
+    "desc": "Thiết kế signature độc quyền Woashe Bloom với điểm nhấn lan Vanda tím hoàng gia phối cùng các dòng hoa ngoại nhập kiêu kỳ trên nền giấy tối màu quý phái.",
+    "flowers": "Lan Vanda tím mắt lưới, mẫu đơn hồng đậm, sao tím, cỏ đồng nội, giấy gói cao cấp",
+    "badge": "Woashe Signature",
+    "active": true,
+    "createdAt": "2026-09-30T09:08:00.000Z"
+  }
+]

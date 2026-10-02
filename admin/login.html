@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập quản trị · Woashe Bloom</title>
+<meta name="theme-color" content="#FAF6F0">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF6F0;
+  --card: #FFFFFF;
+  --text: #2F2B2A;
+  --muted: #7A7270;
+  --rose: #B23A5B;
+  --rose-hover: #962E4B;
+  --line: #E8E0D7;
+  --err-bg: #FDEDEE;
+  --err-txt: #B8233C;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Sarabun', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.login-box {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 40px 32px;
+  box-shadow: 0 10px 30px rgba(47, 43, 42, 0.05);
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+.logo svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.logo b {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.logo small {
+  font-size: 0.95rem;
+  color: var(--rose);
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+p.sub {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+}
+.fld {
+  margin-bottom: 20px;
+}
+.fld label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.input-wrap {
+  position: relative;
+}
+input[type="text"], input[type="password"] {
+  width: 100%;
+  height: 46px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #FCFAF7;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s;
+}
+input:focus {
+  border-color: var(--rose);
+  background: #FFF;
+}
+.toggle-pwd {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 4px;
+}
+.btn {
+  width: 100%;
+  height: 48px;
+  background: var(--rose);
+  color: #FFF;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.btn:hover { background: var(--rose-hover); }
+.btn:active { transform: scale(0.99); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.alert {
+  background: var(--err-bg);
+  color: var(--err-txt);
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.hint {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+}
+.hint b { color: var(--text); font-weight: 600; }
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.back-link:hover { color: var(--rose); }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+  <a class="logo" href="../index.html">
+    <svg viewBox="0 0 42 42" aria-hidden="true" fill="none"><path d="M 6.5 15.5 C 8.5 14.5 10.5 16 11.5 20.5 L 14.2 32 C 14.8 34.5 16.8 34.5 17.5 32 L 20.5 21 L 21 21 L 24 32 C 24.7 34.5 26.7 34.5 27.3 32 L 30 20.5 C 31 16 33 14.5 35 15.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M 20.75 21 C 17.5 15 18 8.5 20.75 5.5 C 23.5 8.5 24 15 20.75 21 Z" fill="var(--rose)" opacity=".9"/><circle cx="20.75" cy="4.8" r="1.6" fill="var(--gold)"/><circle cx="6.5" cy="15.5" r="1.2" fill="currentColor"/><circle cx="35" cy="15.5" r="1.2" fill="currentColor"/></svg>
+    <b>woashe</b>
+    <small>Bloom Admin</small>
+  </a>
+
+  <h1>Đăng nhập Quản trị</h1>
+  <p class="sub">Quản lý mẫu hoa & theo dõi đơn hàng</p>
+
+  <div class="alert" id="alertBox"></div>
+
+  <form id="loginForm">
+    <div class="fld">
+      <label for="username">Tên đăng nhập</label>
+      <input type="text" id="username" name="username" required autocomplete="username" placeholder="admin" autofocus>
+    </div>
+
+    <div class="fld">
+      <label for="password">Mật khẩu</label>
+      <div class="input-wrap">
+        <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="••••••••">
+        <button type="button" class="toggle-pwd" id="togglePwd" aria-label="Hiện mật khẩu">Hiện</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="submitBtn">Đăng nhập</button>
+  </form>
+
+  <div class="hint">
+    Tài khoản mặc định: <b>admin</b><br>
+    Mật khẩu mặc định: <b>woashe2026@</b><br>
+    <small>(Bạn có thể đổi mật khẩu sau khi đăng nhập)</small>
+  </div>
+
+  <a class="back-link" href="../index.html">← Quay lại trang chủ cửa hàng</a>
+</div>
+
+<script>
+const form = document.getElementById('loginForm');
+const alertBox = document.getElementById('alertBox');
+const submitBtn = document.getElementById('submitBtn');
+const pwdInput = document.getElementById('password');
+const togglePwd = document.getElementById('togglePwd');
+
+togglePwd.addEventListener('click', () => {
+  const isPwd = pwdInput.type === 'password';
+  pwdInput.type = isPwd ? 'text' : 'password';
+  togglePwd.textContent = isPwd ? 'Ẩn' : 'Hiện';
+});
+
+if (window.location.protocol === 'file:') {
+  alertBox.innerHTML = '⚠️ Bạn đang mở file trực tiếp (file://). Vui lòng chạy file <b>start.bat</b> và truy cập qua đường dẫn: <a href="http://localhost:9090/admin" style="color:inherit;font-weight:600">http://localhost:9090/admin</a>';
+  alertBox.style.display = 'block';
+}
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (window.location.protocol === 'file:') {
+    alertBox.innerHTML = '⚠️ Vui lòng mở trình duyệt và gõ: <a href="http://localhost:9090/admin" style="color:inherit;font-weight:600">http://localhost:9090/admin</a>';
+    alertBox.style.display = 'block';
+    return;
+  }
+  alertBox.style.display = 'none';
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Đang xác thực...';
+
+  const username = document.getElementById('username').value.trim();
+  const password = pwdInput.value;
+
+  try {
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password })
+    });
+    const contentType = res.headers.get('content-type') || '';
+    if (!contentType.includes('application/json')) {
+      throw new Error('Máy chủ phản hồi không đúng định dạng. Hãy kiểm tra server Node.js đang chạy trên cổng 9090.');
+    }
+    const data = await res.json();
+
+    if (data.ok) {
+      window.location.href = '/admin/index.html';
+    } else {
+      alertBox.textContent = data.error || 'Đăng nhập không thành công';
+      alertBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Đăng nhập';
+      pwdInput.select();
+    }
+  } catch (err) {
+    alertBox.textContent = err.message || 'Không thể kết nối đến máy chủ. Vui lòng thử lại.';
+    alertBox.style.display = 'block';
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Đăng nhập';
+  }
+});
+</script>
+
+</body>
+</html>

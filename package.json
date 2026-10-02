@@ -1,0 +1,22 @@
+{
+  "name": "woashe-bloom",
+  "version": "1.0.0",
+  "description": "Website shop hoa tươi Woashe Bloom & Admin Panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "flower-shop",
+    "ecommerce",
+    "admin-panel",
+    "vanilla-js",
+    "nodejs"
+  ],
+  "author": "Woashe Bloom",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "username": "admin",
+    "name": "Quản trị viên Woashe Bloom",
+    "salt": "3df1093a3a3fe91931d1c379aeb32e65",
+    "hash": "9514cf6f6518961a1e48ba9035a858a61c75da0ce80a174f3fcd78c7cde174200d14bb80acc5b2d763e8b2b216d1ef965e781560d56fcd7638605853982b7a07",
+    "role": "admin",
+    "updatedAt": "2026-09-30T09:01:34.672Z"
+  }
+]
